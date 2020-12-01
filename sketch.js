@@ -36,10 +36,11 @@ function preload() {
     prev[name] = value;
     return prev
   }, {});
-  print(ga._ga);
+  User_name = getCookie("username");
+  User_password = getCookie("password")
   // get user from cookies
   get_question()
-  get_user(ga._ga) // works!
+  // get_user(ga._ga) // works!
   login_page_setup()
   welcome_page_setup()
 

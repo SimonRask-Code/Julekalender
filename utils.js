@@ -1,17 +1,31 @@
-function get_user(cookie_ga) {
-    // Gets user from ga
-
-    httpPost(user_url, 'json', {
-        usage: 'ga_fetch',
-        ga: cookie_ga
-    }, (result) => {
-        if (result.statusCode == 200) {
-            User_name = result.body.user_name;
-            User_password = result.body.password;
+//function get_user(cookie_ga) {
+// Gets user from ga
+//
+//    httpPost(user_url, 'json', {
+//       usage: 'ga_fetch',
+//        ga: cookie_ga
+//    }, (result) => {
+//        if (result.statusCode == 200) {
+//            User_name = result.body.user_name;
+//            User_password = result.body.password;
+//        }
+//    })
+//}
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
         }
-    })
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }
-
 function add_user(UserName, password, cookie_ga) {
     httpPost(user_url, 'json', {
         usage: 'add_user',
@@ -24,6 +38,8 @@ function add_user(UserName, password, cookie_ga) {
             User_password = password;
             curPage = 'question';
             global_error = undefined;
+            document.cookie = "username=" + UserName + "; expires=Fri, 18 Dec 20202 12:00:00 UTC";
+            document.cookie = "password=" + password + "; expires=Fri, 18 Dec 20202 12:00:00 UTC";
         } else {
             global_error = 'Ugyldig brugernavn';
         }
@@ -63,6 +79,8 @@ function login_user(UserName, password, cookie_ga) {
             curPage = 'question';
             global_error = undefined;
             global_answer = undefined;
+            document.cookie = "username=" + UserName + "; expires=Fri, 18 Dec 20202 12:00:00 UTC";
+            document.cookie = "password=" + password + "; expires=Fri, 18 Dec 20202 12:00:00 UTC";
         } else {
             global_error = 'Forkert brugernavn eller adgangskode';
         }
