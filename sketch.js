@@ -27,6 +27,8 @@ let answer_obj;
 
 let fallingSnow = [];
 let NotFallingSnow = [];
+let ga;
+
 
 function preload() {
   ga = document.cookie.split('; ').reduce((prev, current) => {
@@ -34,7 +36,7 @@ function preload() {
     prev[name] = value;
     return prev
   }, {});
-
+  print(ga._ga);
   // get user from cookies
   get_question()
   get_user(ga._ga) // works!
