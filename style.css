@@ -1,0 +1,56 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  display: block;
+}
+
+p {
+  font-family: 'Tangerine', cursive;
+  font-family: 'Abril Fatface', cursive;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  color: rgb(255, 160 , 50 );
+  background-color: rgb(36, 83, 68);
+  transition-duration: 0.1s;
+  border: 5px solid rgb(255, 160 , 50);
+  border-radius:30px 30px;
+}
+
+button:hover {
+  color: rgb(255, 165, 55);
+  background-color: rgb(31, 78, 63);
+  border: solid rgb(255, 165, 55);
+  border-radius: 30px 30px;
+  outline: none;
+}
+
+button:active {
+  background-color: rgb(115, 37, 33);
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+
+input[type="radio"] {
+  -ms-transform: scale(1.5);
+  -webkit-transform: scale(1.7);
+  transform: scale(1.7);
+  vertical-align: middle;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+
